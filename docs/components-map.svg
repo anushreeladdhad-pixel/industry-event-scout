@@ -1,137 +1,106 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" font-family="Helvetica, Arial, sans-serif">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#312e81"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
-    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4b4863"/></marker>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0L10 5L0 10z" fill="#4338ca"/></marker>
   </defs>
   <rect width="1600" height="1000" fill="#f5f3ee"/>
-  <rect x="0" y="0" width="1600" height="110" fill="url(#g)"/>
-  <text x="48" y="58" font-size="38" font-weight="700" fill="#fff" font-family="Georgia, serif">Industry Event Scout: Components Map</text>
-  <text x="48" y="90" font-size="18" fill="#d9d6ff">Monday 7:30 AM IST digest. The system advises; the user decides. It never registers, contacts organisers or edits a calendar.</text>
+  <rect width="1600" height="120" fill="url(#g)"/>
+  <text x="48" y="62" font-size="42" font-weight="700" fill="#fff" font-family="Georgia, serif">Event Scout: how it works</text>
+  <text x="48" y="98" font-size="22" fill="#d9d6ff">Every Monday at 7:30 AM, one email lists the best events in your cities. You decide; it never signs you up for anything.</text>
 
-  <!-- column labels -->
-  <g font-size="14" font-weight="700" fill="#6b6878" letter-spacing="2">
-    <text x="48" y="150">1 · TRIGGER &amp; CONFIG</text><text x="440" y="150">2 · COLLECT</text><text x="840" y="150">3 · PROCESS</text><text x="1240" y="150">4 · DELIVER</text>
-  </g>
-
-  <!-- Trigger -->
+  <!-- the 5 steps -->
+  <text x="48" y="170" font-size="18" font-weight="700" fill="#6b6878" letter-spacing="3">THE MONDAY JOURNEY</text>
   <g>
-    <rect x="48" y="170" width="320" height="130" rx="16" fill="#fff" stroke="#c9c5d9"/>
-    <text x="68" y="204" font-size="20" font-weight="700" fill="#16151d">Vercel Cron</text>
-    <text x="68" y="230" font-size="14" fill="#555">Mon 02:00 UTC = 07:30 IST</text>
-    <text x="68" y="252" font-size="14" fill="#555">GET /api/cron · Bearer CRON_SECRET</text>
-    <text x="68" y="274" font-size="12" fill="#b42318">fails closed if secret unset</text>
-
-    <rect x="48" y="330" width="320" height="150" rx="16" fill="#fff" stroke="#c9c5d9"/>
-    <text x="68" y="364" font-size="20" font-weight="700" fill="#16151d">Web app (Next.js 15, Vercel)</text>
-    <text x="68" y="390" font-size="14" fill="#555">/ digest table + email preview</text>
-    <text x="68" y="412" font-size="14" fill="#555">/settings · /api/preview · /api/send</text>
-    <text x="68" y="434" font-size="14" fill="#555">/api/config · admin token (x-admin-token)</text>
-    <text x="68" y="458" font-size="12" fill="#b42318">preview throttled · send/save need token</text>
-
-    <rect x="48" y="510" width="320" height="150" rx="16" fill="#fff" stroke="#4338ca" stroke-width="2"/>
-    <text x="68" y="544" font-size="20" font-weight="700" fill="#16151d">Config storage: Supabase</text>
-    <text x="68" y="570" font-size="14" fill="#555">single-row table scout_config (RLS on)</text>
-    <text x="68" y="592" font-size="14" fill="#555">focus areas · cities · window · thresholds</text>
-    <text x="68" y="614" font-size="14" fill="#555">edited on /settings, no code change</text>
-    <text x="68" y="640" font-size="12" fill="#92580a">storage down =&gt; defaults, email still ships</text>
-  </g>
-
-  <!-- Collect -->
-  <g>
-    <rect x="440" y="170" width="330" height="92" rx="16" fill="#fff" stroke="#c9c5d9"/>
-    <text x="460" y="202" font-size="19" font-weight="700" fill="#16151d">Eventbrite listing pages</text>
-    <text x="460" y="226" font-size="14" fill="#555">schema.org JSON-LD · provenance: structured</text>
-    <text x="460" y="246" font-size="12" fill="#555">12 requests max · deadline never listed</text>
-
-    <rect x="440" y="280" width="330" height="92" rx="16" fill="#fff" stroke="#c9c5d9"/>
-    <text x="460" y="312" font-size="19" font-weight="700" fill="#16151d">Newsletters / organiser RSS</text>
-    <text x="460" y="336" font-size="14" fill="#555">RSS/Atom parser → Gemini extractor</text>
-    <text x="460" y="356" font-size="12" fill="#555">provenance: ai-extracted</text>
-
-    <rect x="440" y="390" width="330" height="92" rx="16" fill="#fff" stroke="#c9c5d9"/>
-    <text x="460" y="422" font-size="19" font-weight="700" fill="#16151d">Gemini web search</text>
-    <text x="460" y="446" font-size="14" fill="#555">Google Search grounding, 1 call per city</text>
-    <text x="460" y="466" font-size="12" fill="#6a1b9a">tagged "AI-found, verify"</text>
-
-    <rect x="440" y="500" width="330" height="92" rx="16" fill="#fff" stroke="#c9c5d9"/>
-    <text x="460" y="532" font-size="19" font-weight="700" fill="#16151d">Sample data</text>
-    <text x="460" y="556" font-size="14" fill="#555">11 labelled [SAMPLE] edge-case events</text>
-    <text x="460" y="576" font-size="12" fill="#555">dates relative to now (IST); app never empty</text>
-
-    <rect x="440" y="620" width="330" height="60" rx="12" fill="#fdecea" stroke="#f0b4ae"/>
-    <text x="460" y="646" font-size="14" font-weight="700" fill="#b42318">Each source: own timeout + try/catch</text>
-    <text x="460" y="666" font-size="12" fill="#b42318">one failure is reported, never fatal</text>
-  </g>
-
-  <!-- Process -->
-  <g>
-    <rect x="840" y="170" width="330" height="330" rx="16" fill="#fff" stroke="#4338ca" stroke-width="2"/>
-    <text x="860" y="204" font-size="20" font-weight="700" fill="#16151d">Processing pipeline</text>
-    <g font-size="15" fill="#333">
-      <text x="860" y="238">1  Dedupe (URL + title/date similarity)</text>
-      <text x="860" y="266">2  Window: today → +30 days (IST)</text>
-      <text x="860" y="294">3  City match (aliases, metro areas)</text>
-      <text x="860" y="322">4  Deadline: drop closed / passed</text>
-      <text x="860" y="350">5  Rank by focus-area match</text>
-      <text x="860" y="378">6  Assemble: urgent (&lt;7 days) + best matches</text>
+    <!-- step boxes: x = 48, 354, 660, 966, 1272  width 280 -->
+    <g>
+      <rect x="48" y="190" width="280" height="250" rx="22" fill="#fff" stroke="#c9c5d9" stroke-width="2"/>
+      <circle cx="88" cy="232" r="22" fill="#4338ca"/><text x="88" y="240" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+      <text x="124" y="240" font-size="26" font-weight="700" fill="#16151d">Wake up</text>
+      <text x="72" y="290" font-size="20" fill="#333">An alarm goes off every</text>
+      <text x="72" y="318" font-size="20" fill="#333">Monday at 7:30 AM.</text>
+      <text x="72" y="368" font-size="17" fill="#6b6878">Made by: Vercel Cron</text>
     </g>
-    <text x="860" y="414" font-size="12" fill="#555">Rules: unknown deadline is never "safe";</text>
-    <text x="860" y="432" font-size="12" fill="#555">exactly 7 days is not urgent; earlier deadline wins.</text>
-    <text x="860" y="452" font-size="12" fill="#555">Code guards G1-G6 validate every AI output.</text><text x="860" y="472" font-size="12" fill="#4338ca">Reads settings from Supabase on every run.</text>
-
-    <rect x="840" y="530" width="330" height="150" rx="16" fill="#fff" stroke="#7c3aed" stroke-width="2"/>
-    <text x="860" y="564" font-size="20" font-weight="700" fill="#16151d">AI layer: Gemini Flash (REST)</text>
-    <text x="860" y="590" font-size="14" fill="#555">Extractor · relevance scorer (prompts v2.1)</text>
-    <text x="860" y="612" font-size="14" fill="#555">evidence quote must appear in listing text</text>
-    <text x="860" y="634" font-size="14" fill="#555">no key / 429 / error =&gt; keyword fallback</text>
-    <text x="860" y="660" font-size="12" fill="#92580a">banner tells the user when AI was skipped</text>
+    <g>
+      <rect x="354" y="190" width="280" height="250" rx="22" fill="#fff" stroke="#c9c5d9" stroke-width="2"/>
+      <circle cx="394" cy="232" r="22" fill="#4338ca"/><text x="394" y="240" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+      <text x="430" y="240" font-size="26" font-weight="700" fill="#16151d">Find events</text>
+      <text x="378" y="290" font-size="20" fill="#333">It checks Eventbrite,</text>
+      <text x="378" y="318" font-size="20" fill="#333">newsletters and the web.</text>
+      <text x="378" y="368" font-size="17" fill="#6b6878">A broken source never</text>
+      <text x="378" y="392" font-size="17" fill="#6b6878">stops the rest.</text>
+    </g>
+    <g>
+      <rect x="660" y="190" width="280" height="250" rx="22" fill="#fff" stroke="#c9c5d9" stroke-width="2"/>
+      <circle cx="700" cy="232" r="22" fill="#4338ca"/><text x="700" y="240" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+      <text x="736" y="240" font-size="26" font-weight="700" fill="#16151d">Clean up</text>
+      <text x="684" y="290" font-size="20" fill="#333">Removes repeats and</text>
+      <text x="684" y="318" font-size="20" fill="#333">events that are too far,</text>
+      <text x="684" y="346" font-size="20" fill="#333">in other cities, or closed.</text>
+    </g>
+    <g>
+      <rect x="966" y="190" width="280" height="250" rx="22" fill="#fff" stroke="#7c3aed" stroke-width="3"/>
+      <circle cx="1006" cy="232" r="22" fill="#7c3aed"/><text x="1006" y="240" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+      <text x="1042" y="240" font-size="26" font-weight="700" fill="#16151d">Rank them</text>
+      <text x="990" y="290" font-size="20" fill="#333">AI scores each event</text>
+      <text x="990" y="318" font-size="20" fill="#333">0 to 100 on how well it</text>
+      <text x="990" y="346" font-size="20" fill="#333">fits your topics.</text>
+      <text x="990" y="396" font-size="17" fill="#6b6878">Made by: Gemini AI</text>
+    </g>
+    <g>
+      <rect x="1272" y="190" width="280" height="250" rx="22" fill="#e4f5ea" stroke="#15803d" stroke-width="3"/>
+      <circle cx="1312" cy="232" r="22" fill="#15803d"/><text x="1312" y="240" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+      <text x="1348" y="240" font-size="26" font-weight="700" fill="#16151d">Email you</text>
+      <text x="1296" y="290" font-size="20" fill="#333">You get one list. Events</text>
+      <text x="1296" y="318" font-size="20" fill="#333">closing in under 7 days</text>
+      <text x="1296" y="346" font-size="20" fill="#333">are flagged in red.</text>
+      <text x="1296" y="396" font-size="17" fill="#6b6878">Sent by: Resend</text>
+    </g>
+  </g>
+  <g stroke="#4338ca" stroke-width="4" fill="none" marker-end="url(#a)">
+    <path d="M332 315 H350"/><path d="M638 315 H656"/><path d="M944 315 H962"/><path d="M1250 315 H1268"/>
   </g>
 
-  <!-- Deliver -->
+  <!-- helpers -->
+  <text x="48" y="500" font-size="18" font-weight="700" fill="#6b6878" letter-spacing="3">THE TOOLS BEHIND IT</text>
   <g>
-    <rect x="1240" y="170" width="312" height="130" rx="16" fill="#fff" stroke="#c9c5d9"/>
-    <text x="1260" y="204" font-size="20" font-weight="700" fill="#16151d">Digest renderer</text>
-    <text x="1260" y="230" font-size="14" fill="#555">One result → HTML email + text + preview</text>
-    <text x="1260" y="252" font-size="14" fill="#555">All text escaped; only http(s) links</text>
-    <text x="1260" y="274" font-size="14" fill="#555">Deadline badges: red / green / amber / grey</text>
+    <rect x="48" y="520" width="360" height="170" rx="22" fill="#fff" stroke="#c9c5d9" stroke-width="2"/>
+    <text x="72" y="562" font-size="26" font-weight="700" fill="#16151d">Website (Vercel)</text>
+    <text x="72" y="600" font-size="20" fill="#333">Shows the event table and a</text>
+    <text x="72" y="628" font-size="20" fill="#333">settings page. Hosts everything.</text>
+    <text x="72" y="666" font-size="17" fill="#6b6878">Built with Next.js</text>
 
-    <rect x="1240" y="330" width="312" height="110" rx="16" fill="#fff" stroke="#c9c5d9"/>
-    <text x="1260" y="364" font-size="20" font-weight="700" fill="#16151d">Email delivery: Resend</text>
-    <text x="1260" y="390" font-size="14" fill="#555">REST API → configured recipient only</text>
-    <text x="1260" y="412" font-size="14" fill="#555">Zero matches still sends a clear email</text>
+    <rect x="438" y="520" width="360" height="170" rx="22" fill="#fff" stroke="#c9c5d9" stroke-width="2"/>
+    <text x="462" y="562" font-size="26" font-weight="700" fill="#16151d">Memory (Supabase)</text>
+    <text x="462" y="600" font-size="20" fill="#333">Remembers your topics, cities</text>
+    <text x="462" y="628" font-size="20" fill="#333">and rules. Change them any</text>
+    <text x="462" y="656" font-size="20" fill="#333">time, no coding needed.</text>
 
-    <rect x="1240" y="470" width="312" height="110" rx="16" fill="#e4f5ea" stroke="#9fd3b0"/>
-    <text x="1260" y="504" font-size="20" font-weight="700" fill="#16151d">Vikram's inbox</text>
-    <text x="1260" y="530" font-size="14" fill="#333">Scannable in under 5 minutes</text>
-    <text x="1260" y="552" font-size="14" fill="#333">He decides; the system never acts for him</text>
+    <rect x="828" y="520" width="360" height="170" rx="22" fill="#fff" stroke="#c9c5d9" stroke-width="2"/>
+    <text x="852" y="562" font-size="26" font-weight="700" fill="#16151d">AI brain (Gemini)</text>
+    <text x="852" y="600" font-size="20" fill="#333">Reads messy newsletters and</text>
+    <text x="852" y="628" font-size="20" fill="#333">scores how well events match.</text>
+    <text x="852" y="666" font-size="17" fill="#6b6878">Code double-checks its answers</text>
 
-    <rect x="1240" y="610" width="312" height="110" rx="16" fill="#fff" stroke="#c9c5d9"/>
-    <text x="1260" y="644" font-size="20" font-weight="700" fill="#16151d">Quality harness</text>
-    <text x="1260" y="670" font-size="14" fill="#555">37 offline tests (no network)</text>
-    <text x="1260" y="692" font-size="14" fill="#555">33 adversarial eval cases vs Gemini</text>
+    <rect x="1218" y="520" width="334" height="170" rx="22" fill="#fff" stroke="#c9c5d9" stroke-width="2"/>
+    <text x="1242" y="562" font-size="26" font-weight="700" fill="#16151d">Mailman (Resend)</text>
+    <text x="1242" y="600" font-size="20" fill="#333">Delivers the email to your</text>
+    <text x="1242" y="628" font-size="20" fill="#333">inbox. Only to you.</text>
   </g>
 
-  <!-- arrows -->
-  <g stroke="#4b4863" stroke-width="2.5" fill="none" marker-end="url(#a)">
-    <path d="M368 235 H400 V330 H440"/>
-    <path d="M368 405 H400 V330"/>
-        <path d="M770 216 H805 V335 H840"/>
-    <path d="M770 326 H840"/>
-    <path d="M770 436 H805 V335"/>
-    <path d="M770 546 H805 V335"/>
-    <path d="M1005 500 V530"/>
-    <path d="M1170 335 H1205 V235 H1240"/>
-    <path d="M1396 300 V330"/>
-    <path d="M1396 440 V470"/>
-  </g>
-  <g stroke="#4338ca" stroke-width="2" stroke-dasharray="6 5" fill="none" marker-end="url(#a)"><path d="M205 480 V510"/></g>
-  <rect x="48" y="760" width="1504" height="190" rx="16" fill="#fff" stroke="#c9c5d9"/>
-  <text x="72" y="796" font-size="18" font-weight="700" fill="#16151d">Failure behaviour (the Monday email always ships)</text>
-  <g font-size="15" fill="#333">
-    <text x="72" y="828">• A source fails or times out → named in a banner and the footer; other sources continue.</text>
-    <text x="72" y="854">• Gemini unavailable / rate-limited → keyword ranking, with a visible note.  • Supabase down → default settings.</text>
-    <text x="72" y="880">• Secrets only from environment variables; send, save and cron fail closed; feed URLs to private addresses are rejected.</text>
-    <text x="72" y="906">• Data model: RawEvent → Event (deduped) → ScoredEvent (score, matched focus areas, reason, deadline status).</text>
-    <text x="72" y="932" fill="#6b6878">Stack: Next.js 15 · React 19 · TypeScript strict · plain CSS · Vercel · Gemini Flash · Supabase · Resend</text>
+  <!-- bottom row -->
+  <g>
+    <rect x="48" y="730" width="740" height="220" rx="22" fill="#fff" stroke="#c9c5d9" stroke-width="2"/>
+    <text x="72" y="774" font-size="26" font-weight="700" fill="#16151d">If something breaks, the email still goes out</text>
+    <text x="72" y="816" font-size="21" fill="#333">• A source is down → the email says which one.</text>
+    <text x="72" y="850" font-size="21" fill="#333">• AI is busy → events are ranked by keywords instead.</text>
+    <text x="72" y="884" font-size="21" fill="#333">• Settings can't load → default settings are used.</text>
+    <text x="72" y="918" font-size="21" fill="#333">• No deadline listed → it says so, never guesses.</text>
+
+    <rect x="828" y="730" width="724" height="220" rx="22" fill="#fff" stroke="#c9c5d9" stroke-width="2"/>
+    <text x="852" y="774" font-size="26" font-weight="700" fill="#16151d">You are in control</text>
+    <text x="852" y="816" font-size="21" fill="#333">• Pick your topics and cities on the Settings page.</text>
+    <text x="852" y="850" font-size="21" fill="#333">• A secret password protects "send" and "save".</text>
+    <text x="852" y="884" font-size="21" fill="#333">• It only suggests. It never registers you, contacts</text>
+    <text x="852" y="912" font-size="21" fill="#333">   anyone, or touches your calendar.</text>
   </g>
 </svg>
