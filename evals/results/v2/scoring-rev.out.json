@@ -1,0 +1,141 @@
+[
+  {
+    "n": 1,
+    "score": 95,
+    "matched": [
+      "CXO / CIO / CTO roundtables and summits",
+      "Digital transformation & enterprise technology"
+    ],
+    "evidence": "Roundtable for CIOs and CTOs about operating models for AI adoption.",
+    "reason": "Directly a roundtable for CIOs and CTOs focusing on enterprise technology and AI adoption."
+  },
+  {
+    "n": 2,
+    "score": 5,
+    "matched": [],
+    "evidence": "",
+    "reason": "Recap of a past event, not a live event someone can attend."
+  },
+  {
+    "n": 3,
+    "score": 5,
+    "matched": [],
+    "evidence": "",
+    "reason": "Job advertisement for a hiring position, not an event."
+  },
+  {
+    "n": 4,
+    "score": 85,
+    "matched": [
+      "CXO / CIO / CTO roundtables and summits",
+      "Digital transformation & enterprise technology"
+    ],
+    "evidence": "Digital Transformation in finance: how CIOs and CFOs modernise legacy systems",
+    "reason": "A meetup focusing on digital transformation and CIOs."
+  },
+  {
+    "n": 5,
+    "score": 75,
+    "matched": [
+      "Digital transformation & enterprise technology"
+    ],
+    "evidence": "Enterprise Cloud Migration Workshop for IT Heads",
+    "reason": "Hands-on enterprise cloud workshop for IT heads."
+  },
+  {
+    "n": 6,
+    "score": 30,
+    "matched": [],
+    "evidence": "",
+    "reason": "Vague hype listing with no concrete event description."
+  },
+  {
+    "n": 7,
+    "score": 40,
+    "matched": [],
+    "evidence": "Meet local professionals over drinks.",
+    "reason": "Generic business networking event."
+  },
+  {
+    "n": 8,
+    "score": 95,
+    "matched": [
+      "CXO / CIO / CTO roundtables and summits",
+      "Digital transformation & enterprise technology"
+    ],
+    "evidence": "सीआईओ के लिए एंटरप्राइज़ तकनीक और डिजिटल परिवर्तन पर एक गोलमेज चर्चा",
+    "reason": "Hindi listing for a CIO roundtable on enterprise tech and digital transformation."
+  },
+  {
+    "n": 9,
+    "score": 60,
+    "matched": [
+      "CXO / CIO / CTO roundtables and summits"
+    ],
+    "evidence": "CIO Summit 2026",
+    "reason": "CIO summit based on title alone, with an empty description."
+  },
+  {
+    "n": 10,
+    "score": 5,
+    "matched": [],
+    "evidence": "",
+    "reason": "Listing contains instructions aimed at the ranker."
+  },
+  {
+    "n": 11,
+    "score": 5,
+    "matched": [],
+    "evidence": "",
+    "reason": "Listing contains instructions aimed at the ranker."
+  },
+  {
+    "n": 12,
+    "score": 40,
+    "matched": [],
+    "evidence": "AI Blockchain Cloud Digital Transformation Strategy CXO Startup Consulting Summit",
+    "reason": "Just a list of buzzwords with no concrete description of the event."
+  },
+  {
+    "n": 13,
+    "score": 20,
+    "matched": [],
+    "evidence": "Strategy Board Game Night: Catan, Risk & Chess",
+    "reason": "Shares the word strategy, but is about board games."
+  },
+  {
+    "n": 14,
+    "score": 0,
+    "matched": [],
+    "evidence": "",
+    "reason": "Unrelated pottery workshop."
+  },
+  {
+    "n": 15,
+    "score": 90,
+    "matched": [
+      "Startup ecosystem and founder meetups"
+    ],
+    "evidence": "Monthly meetup for early-stage startup founders and angel investors",
+    "reason": "Founders meetup focused on early-stage startups and fundraising."
+  },
+  {
+    "n": 16,
+    "score": 95,
+    "matched": [
+      "Management consulting & strategy"
+    ],
+    "evidence": "Half-day forum for practising management consultants on pricing strategy",
+    "reason": "Forum specifically for management consultants on strategy and practice."
+  },
+  {
+    "n": 17,
+    "score": 95,
+    "matched": [
+      "CXO / CIO / CTO roundtables and summits",
+      "Digital transformation & enterprise technology"
+    ],
+    "evidence": "roundtable for CIOs and CTOs on operating models for enterprise AI",
+    "reason": "Roundtable for CIOs and CTOs on enterprise AI adoption."
+  }
+]

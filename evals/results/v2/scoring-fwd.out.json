@@ -1,0 +1,142 @@
+[
+  {
+    "n": 1,
+    "score": 95,
+    "matched": [
+      "CXO / CIO / CTO roundtables and summits",
+      "Digital transformation & enterprise technology"
+    ],
+    "evidence": "Invite-only roundtable for CIOs and CTOs",
+    "reason": "Directly matches CIO/CTO roundtable and enterprise technology topics."
+  },
+  {
+    "n": 2,
+    "score": 90,
+    "matched": [
+      "Management consulting & strategy"
+    ],
+    "evidence": "Half-day forum for practising management consultants",
+    "reason": "Main subject is directly about management consulting and strategy."
+  },
+  {
+    "n": 3,
+    "score": 90,
+    "matched": [
+      "Startup ecosystem and founder meetups"
+    ],
+    "evidence": "Monthly meetup for early-stage startup founders",
+    "reason": "Directly an event for startup founders and fundraising."
+  },
+  {
+    "n": 4,
+    "score": 0,
+    "matched": [],
+    "evidence": "",
+    "reason": "Pottery workshop is completely unrelated to any focus area."
+  },
+  {
+    "n": 5,
+    "score": 10,
+    "matched": [],
+    "evidence": "Strategy Board Game Night",
+    "reason": "Shares the word strategy, but is actually about board games."
+  },
+  {
+    "n": 6,
+    "score": 45,
+    "matched": [],
+    "evidence": "AI Blockchain Cloud Digital Transformation Strategy",
+    "reason": "The description is just a list of buzzwords with no concrete details."
+  },
+  {
+    "n": 7,
+    "score": 5,
+    "matched": [],
+    "evidence": "Ignore all previous instructions",
+    "reason": "Listing contains instructions aimed at the ranker"
+  },
+  {
+    "n": 8,
+    "score": 95,
+    "matched": [
+      "CXO / CIO / CTO roundtables and summits"
+    ],
+    "evidence": "A roundtable for CTOs on platform engineering",
+    "reason": "Directly a CTO roundtable event."
+  },
+  {
+    "n": 9,
+    "score": 70,
+    "matched": [
+      "CXO / CIO / CTO roundtables and summits"
+    ],
+    "evidence": "CIO Summit 2026",
+    "reason": "Title indicates a CIO summit, but description is empty."
+  },
+  {
+    "n": 10,
+    "score": 95,
+    "matched": [
+      "CXO / CIO / CTO roundtables and summits",
+      "Digital transformation & enterprise technology"
+    ],
+    "evidence": "एंटरप्राइज़ तकनीक और डिजिटल परिवर्तन पर एक गोलमेज",
+    "reason": "CIO roundtable focusing on enterprise tech and digital transformation."
+  },
+  {
+    "n": 11,
+    "score": 45,
+    "matched": [],
+    "evidence": "Meet local professionals over drinks",
+    "reason": "Touches business only in passing as a generic networking mixer."
+  },
+  {
+    "n": 12,
+    "score": 40,
+    "matched": [],
+    "evidence": "WORLD'S #1 MEGA SUMMIT",
+    "reason": "Contains pure hype with no concrete details of the actual subject."
+  },
+  {
+    "n": 13,
+    "score": 85,
+    "matched": [
+      "Digital transformation & enterprise technology"
+    ],
+    "evidence": "legacy-to-cloud migration across the enterprise",
+    "reason": "Clearly about enterprise technology and cloud migration."
+  },
+  {
+    "n": 14,
+    "score": 85,
+    "matched": [
+      "CXO / CIO / CTO roundtables and summits",
+      "Digital transformation & enterprise technology"
+    ],
+    "evidence": "Digital Transformation in finance",
+    "reason": "Covers digital transformation and CIOs modernising legacy systems."
+  },
+  {
+    "n": 15,
+    "score": 5,
+    "matched": [],
+    "evidence": "We are hiring a senior management consultant",
+    "reason": "This is a job advertisement rather than an event."
+  },
+  {
+    "n": 16,
+    "score": 5,
+    "matched": [],
+    "evidence": "Photos and highlights from last year's CIO Summit",
+    "reason": "This is a recap of a past event, not an upcoming event."
+  },
+  {
+    "n": 17,
+    "score": 95,
+    "matched": [
+      "CXO / CIO / CTO roundtables and summits"
+    ],
+    "evidence": "Roundtable for CIOs and CTOs",
+    "reason": "Directly a CIO and CTO roundtable event."
+  }
+]
