@@ -92,15 +92,22 @@ export async function scoreEvents(
   if (!runner) aiNote = "GEMINI_API_KEY not set - ranked by keyword match instead of AI.";
   else {
     const BATCH = 20;
-    for (let i = 0; i < events.length; i += BATCH) {
-      const batch = events.slice(i, i + BATCH);
-      try {
-        const text = await runner(scoringPrompt(batch, focusAreas));
-        for (const [k, v] of validateScores(parseJsonLoose(text), batch, focusAreas)) scores.set(k, v);
-      } catch (e) {
-        aiNote = `Gemini scoring failed for part of the list (${errMsg(e)}); used keyword ranking for those.`;
+    const CONCURRENCY = 3; // a few batches at once: the cold load drops from ~45s to ~15s without hammering the API
+    const batches: Event[][] = [];
+    for (let i = 0; i < events.length; i += BATCH) batches.push(events.slice(i, i + BATCH));
+    let next = 0;
+    const worker = async () => {
+      while (next < batches.length) {
+        const batch = batches[next++];
+        try {
+          const text = await runner(scoringPrompt(batch, focusAreas));
+          for (const [k, v] of validateScores(parseJsonLoose(text), batch, focusAreas)) scores.set(k, v);
+        } catch (e) {
+          aiNote = `Gemini scoring failed for part of the list (${errMsg(e)}); used keyword ranking for those.`;
+        }
       }
-    }
+    };
+    await Promise.all(Array.from({ length: Math.min(CONCURRENCY, batches.length) }, worker));
   }
   for (const e of events) if (!scores.has(e.id)) scores.set(e.id, keywordScore(e, focusAreas));
   const missing = events.filter((e) => scores.get(e.id)?.by === "keyword").length;
