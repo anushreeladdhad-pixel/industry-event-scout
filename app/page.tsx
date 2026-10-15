@@ -36,11 +36,12 @@ export default function Home() {
   useEffect(() => { load(); }, []);
 
   async function send() {
+    if (!token.trim()) { setMsg({ ok: false, text: "Type your admin token in the box first." }); return; }
     setSending(true); setMsg(null);
     try {
-      const r = await fetch("/api/send", { method: "POST", headers: { "x-admin-token": token } });
+      const r = await fetch("/api/send", { method: "POST", headers: { "x-admin-token": token.trim() } });
       const j = await r.json();
-      setMsg(r.ok ? { ok: true, text: `Sent to ${j.to}.` } : { ok: false, text: j.error ?? "Failed" });
+      setMsg(r.ok ? { ok: true, text: `Sent to ${j.to}. Check your inbox.` } : { ok: false, text: r.status === 401 ? "Wrong admin token." : (j.error ?? "Failed") });
     } catch { setMsg({ ok: false, text: "Network error" }); }
     setSending(false);
   }
@@ -67,9 +68,9 @@ export default function Home() {
         <p>One ranked list of in-person events in your cities, scored against your focus areas, with closing deadlines flagged so nothing slips by a day.</p>
         <div className="cta">
           <button onClick={() => load(true)} disabled={loading}>{loading ? "Building digest…" : "↻ Refresh digest"}</button>
-          <button className="secondary" onClick={send} disabled={sending || !token}>{sending ? "Sending…" : "✉ Email it to me now"}</button>
-          {!token && <input type="password" placeholder="Admin token (saved on this device)" value={token} onChange={(e) => setToken(e.target.value)} aria-label="Admin token" style={{ width: 240 }} />}
-          {token && <button className="linkish" onClick={() => setToken("")}>Forget token</button>}
+          <input type="password" placeholder="Admin token" value={token} onChange={(e) => setToken(e.target.value)} aria-label="Admin token" autoComplete="off" style={{ width: 200 }} />
+          <button className="secondary" onClick={send} disabled={sending}>{sending ? "Sending…" : "✉ Email it to me now"}</button>
+          {token && <button className="linkish" onClick={() => setToken("")}>Clear</button>}
         </div>
         {msg && <div className={`notice ${msg.ok ? "ok" : "err"}`} role="status">{msg.text}</div>}
       </section>

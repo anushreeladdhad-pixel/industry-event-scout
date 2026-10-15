@@ -29,7 +29,7 @@ export default function Settings() {
     if (!cfg) return;
     setSaving(true); setMsg(null);
     const body = { ...cfg, focusAreas: lines(txt.focus), cities: lines(txt.cities), rssFeeds: lines(txt.feeds) };
-    const r = await fetch("/api/config", { method: "POST", headers: { "content-type": "application/json", "x-admin-token": token }, body: JSON.stringify(body) });
+    const r = await fetch("/api/config", { method: "POST", headers: { "content-type": "application/json", "x-admin-token": token.trim() }, body: JSON.stringify(body) });
     const j = await r.json();
     setMsg(r.ok ? { ok: true, text: "Saved. The next digest uses these settings. No code change needed." } : { ok: false, text: j.error ?? "Could not save" });
     setSaving(false);
@@ -95,7 +95,7 @@ export default function Settings() {
 
       <div className="savebar">
         <input id="tok" type="password" placeholder="Admin token" aria-label="Admin token" value={token} onChange={(e) => setToken(e.target.value)} />
-        <button onClick={save} disabled={saving || !token || !editable}>{saving ? "Saving…" : "Save settings"}</button>
+        <button onClick={save} disabled={saving || !token.trim() || !editable}>{saving ? "Saving…" : "Save settings"}</button>
         {msg && <span className={`notice ${msg.ok ? "ok" : "err"}`} role="status" style={{ margin: 0 }}>{msg.text}</span>}
       </div>
     </>
